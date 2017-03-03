@@ -106,15 +106,17 @@
                 </tr>
                 <tr>
                     <td>
-                        {{ Form::label('statuscode', "Response Code") }}
+                        {{ Form::label('statuscode', "Status") }}
                     </td>
                     <td>
-                        {{ $sg_status_code }}
+                         @if ($sg_status_code)
+                         {{ ($sg_status_code == '202') ? 'Email sent.':'email failed to send, please review configuration, or talk to someone smart enough to figure out the issue.' }}
+                        @endif
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: right; padding-right: 50">
-                        {{ link_to_action('SendgridController@form', $title = 'Repeat', [], $attributes = ['class' => 'btn btn-primary']) }}
+                        {{ link_to_action('SendgridController@form', $title = 'Send another email', [], $attributes = ['class' => 'btn btn-primary']) }}
                     </td>
                 </tr>
             </table>

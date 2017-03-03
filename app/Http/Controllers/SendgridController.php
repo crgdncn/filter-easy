@@ -60,7 +60,7 @@ class SendgridController extends Controller
         $field_values = $request->session()->all();
         // If not a redirect, set default values for form fields (choose random field to test for)
         if (!array_key_exists('subject', $field_values)) {
-            $field_values = ['to' => '', 'from' => '', 'subject' => '', 'body' => '', 'attachment' => ''];
+            $field_values = ['to' => '', 'from' => '', 'subject' => '', 'body' => '', 'attachment' => '', 'sg_status_code' => '', 'sg_headers' => '', 'sg_body' => ''];
         }
         return view('sendgrid.result', $field_values);
     }
