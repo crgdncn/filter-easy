@@ -71,7 +71,8 @@ class SendgridController extends Controller
      * @param Request $request
      * @return array Sendgrid response detail
      */
-    final protected function sendgrid(Request $request) {
+    final protected function sendgrid(Request $request)
+    {
         $to = new \SendGrid\Email("FilterEasy", $request->to);
         $from = new \SendGrid\Email("Sendgrid Code Assignment", $request->from);
         $content = new \SendGrid\Content("text/plain", $request->body);
